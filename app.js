@@ -1,3 +1,5 @@
+// FIXED TasteBot app.js
+
 const chatWindow = document.getElementById("chat-window");
 const chatForm = document.getElementById("chat-form");
 const chatInput = document.getElementById("chat-input");
@@ -22,7 +24,7 @@ function escapeHtml(text) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
+    .replace(/\"/g, "&quot;")
     .replace(/'/g, "&#39;");
 }
 
@@ -43,7 +45,7 @@ function createConversation() {
 }
 
 function getActiveConversation() {
-  return conversations.find((conversation) => conversation.id === activeConversationId) || null;
+  return conversations.find(c => c.id === activeConversationId) || null;
 }
 
 function sortConversationsByRecent() {
@@ -52,13 +54,17 @@ function sortConversationsByRecent() {
 
 function saveConversations() {
   sortConversationsByRecent();
-  localStorage.setItem(STORAGE_KEYS.conversations, JSON.stringify(conversations.slice(0, MAX_STORED_CONVERSATIONS)));
+  localStorage.setItem(
+    STORAGE_KEYS.conversations,
+    JSON.stringify(conversations.slice(0, MAX_STORED_CONVERSATIONS))
+  );
   localStorage.setItem(STORAGE_KEYS.activeConversationId, activeConversationId || "");
 }
 
 function loadConversations() {
   const raw = localStorage.getItem(STORAGE_KEYS.conversations);
   let parsed = [];
+
   if (raw) {
     try {
       parsed = JSON.parse(raw);
@@ -68,33 +74,34 @@ function loadConversations() {
   }
 
   if (!Array.isArray(parsed) || parsed.length === 0) {
-    const firstConversation = createConversation();
-    conversations = [firstConversation];
-    activeConversationId = firstConversation.id;
+    const first = createConversation();
+    conversations = [first];
+    activeConversationId = first.id;
     saveConversations();
     return;
   }
 
-  conversations = parsed
-    .filter((conversation) => conversation && Array.isArray(conversation.messages))
-    .map((conversation) => ({
-      id: conversation.id || `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-      title: conversation.title || "New chat",
-      updatedAt: conversation.updatedAt || Date.now(),
-      messages: conversation.messages.filter((message) => message && (message.sender === "user" || message.sender === "bot")),
-    }));
+  conversations = parsed.map(c => ({
+    id: c.id || `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    title: c.title || "New chat",
+    updatedAt: c.updatedAt || Date.now(),
+    messages: (c.messages || []).filter(m => m.sender === "user" || m.sender === "bot"),
+  }));
 
   sortConversationsByRecent();
 
-  const storedActiveId = localStorage.getItem(STORAGE_KEYS.activeConversationId);
-  const activeExists = conversations.some((conversation) => conversation.id === storedActiveId);
-  activeConversationId = activeExists ? storedActiveId : conversations[0].id;
+  const stored = localStorage.getItem(STORAGE_KEYS.activeConversationId);
+  activeConversationId = conversations.find(c => c.id === stored)
+    ? stored
+    : conversations[0].id;
+
   saveConversations();
 }
 
 function renderConversation(conversation) {
   chatWindow.innerHTML = "";
-  conversation.messages.forEach((message) => {
+
+  conversation.messages.forEach(message => {
     const row = document.createElement("div");
     row.className = `message-row ${message.sender}`;
 
@@ -116,27 +123,29 @@ function renderConversation(conversation) {
 
     chatWindow.appendChild(row);
   });
+
   chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
-function setActiveConversation(conversationId, focusInput = true) {
-  activeConversationId = conversationId;
-  const conversation = getActiveConversation();
-  if (!conversation) return;
-  renderConversation(conversation);
+function setActiveConversation(id, focus = true) {
+  activeConversationId = id;
+  const conv = getActiveConversation();
+  if (!conv) return;
+
+  renderConversation(conv);
   renderRecentChats();
   saveConversations();
-  if (focusInput) chatInput.focus();
+  if (focus) chatInput.focus();
 }
 
-function deleteConversation(conversationId) {
-  conversations = conversations.filter((conversation) => conversation.id !== conversationId);
+function deleteConversation(id) {
+  conversations = conversations.filter(c => c.id !== id);
 
   if (conversations.length === 0) {
-    const replacement = createConversation();
-    conversations = [replacement];
-    activeConversationId = replacement.id;
-  } else if (activeConversationId === conversationId) {
+    const fresh = createConversation();
+    conversations = [fresh];
+    activeConversationId = fresh.id;
+  } else if (activeConversationId === id) {
     sortConversationsByRecent();
     activeConversationId = conversations[0].id;
   }
@@ -149,46 +158,38 @@ function renderRecentChats() {
   if (!recentChatsList) return;
   recentChatsList.innerHTML = "";
 
-  if (conversations.length === 0) {
-    const empty = document.createElement("p");
-    empty.className = "history-empty";
-    empty.textContent = "No recent chats yet.";
-    recentChatsList.appendChild(empty);
-    return;
-  }
-
   sortConversationsByRecent();
-  conversations.forEach((conversation) => {
+
+  conversations.forEach(c => {
     const row = document.createElement("div");
     row.className = "recent-chat-row";
 
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "recent-chat-item";
-    if (conversation.id === activeConversationId) {
-      button.classList.add("active");
-    }
-    button.innerHTML = `<span>${escapeHtml(conversation.title)}</span>`;
-    button.addEventListener("click", () => setActiveConversation(conversation.id, true));
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "recent-chat-item";
 
-    const deleteBtn = document.createElement("button");
-    deleteBtn.type = "button";
-    deleteBtn.className = "recent-chat-delete";
-    deleteBtn.setAttribute("aria-label", `Delete chat: ${conversation.title}`);
-    deleteBtn.textContent = "×";
-    deleteBtn.addEventListener("click", (event) => {
-      event.stopPropagation();
-      deleteConversation(conversation.id);
-    });
+    if (c.id === activeConversationId) btn.classList.add("active");
 
-    row.appendChild(button);
-    row.appendChild(deleteBtn);
+    btn.innerHTML = `<span>${escapeHtml(c.title)}</span>`;
+    btn.onclick = () => setActiveConversation(c.id);
+
+    const del = document.createElement("button");
+    del.className = "recent-chat-delete";
+    del.textContent = "×";
+    del.setAttribute("aria-label", `Delete chat: ${c.title}`);
+
+    del.onclick = (e) => {
+      e.stopPropagation();
+      deleteConversation(c.id);
+    };
+
+    row.appendChild(btn);
+    row.appendChild(del);
     recentChatsList.appendChild(row);
   });
 }
 
 function appendMessage(text, sender = "bot", options = {}) {
-  const { persist = true } = options;
   const row = document.createElement("div");
   row.className = `message-row ${sender}`;
 
@@ -211,55 +212,18 @@ function appendMessage(text, sender = "bot", options = {}) {
   chatWindow.appendChild(row);
   chatWindow.scrollTop = chatWindow.scrollHeight;
 
-  if (!persist) return;
-  const conversation = getActiveConversation();
-  if (!conversation) return;
+  const conv = getActiveConversation();
+  if (!conv) return;
 
-  conversation.messages.push({ sender, html: text });
-  conversation.updatedAt = Date.now();
-  if (sender === "user" && conversation.title === "New chat") {
-    conversation.title = truncateTitle(text);
+  conv.messages.push({ sender, html: text });
+  conv.updatedAt = Date.now();
+
+  if (sender === "user" && conv.title === "New chat") {
+    conv.title = truncateTitle(text);
   }
+
   saveConversations();
   renderRecentChats();
-}
-
-function startNewChat() {
-  const conversation = createConversation();
-  conversations.unshift(conversation);
-  if (conversations.length > MAX_STORED_CONVERSATIONS) {
-    conversations = conversations.slice(0, MAX_STORED_CONVERSATIONS);
-  }
-  setActiveConversation(conversation.id, true);
-  chatInput.value = "";
-}
-
-function formatBotReply(rawText) {
-  if (!rawText) return "";
-
-  const lines = rawText.split(/\r?\n/).filter((line) => line.trim().length > 0);
-  const knownLabels = ["Ingredients", "Steps", "Difficulty", "Tips"];
-
-  const formatted = lines.map((line) => {
-    const parts = line.split(":");
-    if (parts.length > 1) {
-      const label = parts[0].trim();
-      const rest = parts.slice(1).join(":").trim();
-      if (knownLabels.includes(label)) {
-        if (label === "Steps") {
-          const prettySteps = rest
-            .replace(/\s+/g, " ")
-            .replace(/(\d+\.)\s*/g, "<br />$1 ")
-            .replace(/^<br\s*\/?>\s*/i, "");
-          return `<strong>${label}:</strong> ${prettySteps}`;
-        }
-
-        return `<strong>${label}:</strong> ${rest}`;
-      }
-    }
-    return line;
-  });
-  return formatted.join("<br /><br />");
 }
 
 function appendTypingIndicator() {
@@ -274,78 +238,53 @@ function appendTypingIndicator() {
   bubble.className = "bubble";
   bubble.innerHTML = `
     <div class="typing-indicator">
-      <span class="typing-dot"></span>
-      <span class="typing-dot"></span>
-      <span class="typing-dot"></span>
+      <span></span><span></span><span></span>
     </div>
   `;
 
   row.appendChild(avatar);
   row.appendChild(bubble);
-
   chatWindow.appendChild(row);
-  chatWindow.scrollTop = chatWindow.scrollHeight;
 
   return row;
 }
 
-function generateMockReply(prompt) {
-  return `
-    Here’s a beginner‑friendly idea based on what you asked:
-    <br /><br />
-    <strong>1. Quick summary</strong><br />
-    I’ll keep the recipe to a few clear steps with simple ingredients.
-    <br /><br />
-    <strong>2. Suggested direction</strong><br />
-    • Choose a basic cooking method (like sautéing or baking).<br />
-    • Use ingredients you already have and season with salt, pepper, and one herb or spice.<br />
-    • We’ll plate it simply so it still feels “restaurant‑style”.
-    <br /><br />
-    When you connect me to your real TasteBot backend, this message will be replaced by live recipe recommendations.
-  `;
-}
+async function handleUserMessage(msg) {
+  if (!msg.trim()) return;
 
-async function handleUserMessage(message) {
-  if (!message.trim()) return;
-
-  appendMessage(message, "user");
+  appendMessage(msg, "user");
   chatInput.value = "";
 
-  const typingRow = appendTypingIndicator();
+  const typing = appendTypingIndicator();
 
   try {
-    const response = await fetch("http://localhost:5000/chat", {
+    const res = await fetch("http://localhost:5000/chat", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ message }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: msg }),
     });
 
-    const data = await response.json();
-    typingRow.remove();
+    const data = await res.json();
+    typing.remove();
 
-    const reply = data.reply || "Sorry, I could not generate a reply.";
-    const formatted = formatBotReply(reply);
-    appendMessage(formatted, "bot");
-  } catch (error) {
-    typingRow.remove();
-    appendMessage(
-      "Sorry, I had trouble reaching the TasteBot server. Please check if the Python server is running.",
-      "bot",
-    );
+    appendMessage(data.reply || "No response.", "bot");
+  } catch (e) {
+    typing.remove();
+    appendMessage("Server not running.", "bot");
   }
 }
 
-chatForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+chatForm.addEventListener("submit", e => {
+  e.preventDefault();
   handleUserMessage(chatInput.value);
 });
 
-if (newChatBtn) {
-  newChatBtn.addEventListener("click", startNewChat);
-}
+newChatBtn?.addEventListener("click", () => {
+  const conv = createConversation();
+  conversations.unshift(conv);
+  setActiveConversation(conv.id);
+  chatInput.value = "";
+});
 
 loadConversations();
 setActiveConversation(activeConversationId, false);
-

@@ -1,0 +1,163 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hi", "hello", "hey", "hey tastebot"],
+      "responses": [
+        "Hello! I'm TasteBot. What do you want to cook?",
+        "Hi! Tell me a dish or ingredients you have."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["thank you", "thanks"],
+      "responses": [
+        "You're welcome! Ask me anytime for recipes.",
+        "Happy to help! Try another dish anytime."
+      ]
+    },
+    {
+      "tag": "about_bot",
+      "patterns": ["who are you", "what are you", "what is tastebot"],
+      "responses": [
+        "I'm TasteBot, your beginner-friendly cooking assistant.",
+        "I help you learn recipes step by step."
+      ]
+    },
+    {
+      "tag": "capability",
+      "patterns": ["what can you do", "help", "features"],
+      "responses": [
+        "I can suggest recipes, guide cooking steps, and explain ingredients simply.",
+        "Ask me how to cook dishes or what you can make from ingredients."
+      ]
+    },
+
+    {
+      "tag": "adobo",
+      "patterns": ["how to cook adobo", "adobo recipe", "make adobo", "how do I cook adobo"],
+      "responses": [
+        "Ingredients: chicken/pork, soy sauce, vinegar, garlic, bay leaves, peppercorns. Steps: simmer until tender then reduce sauce."
+      ]
+    },
+    {
+      "tag": "sinigang",
+      "patterns": ["how to make sinigang", "sinigang na baboy", "sinigang recipe"],
+      "responses": [
+        "Boil pork, add vegetables, then sour mix or tamarind. Simmer until tender."
+      ]
+    },
+    {
+      "tag": "kare_kare",
+      "patterns": ["how do I make kare kare", "kare kare recipe"],
+      "responses": [
+        "Cook oxtail until tender, make peanut sauce, add vegetables, serve with bagoong."
+      ]
+    },
+    {
+      "tag": "lumpia",
+      "patterns": ["how to make lumpiang shanghai", "lumpia recipe"],
+      "responses": [
+        "Mix pork filling, wrap in spring roll wrapper, then fry until golden."
+      ]
+    },
+    {
+      "tag": "tinola",
+      "patterns": ["how to cook tinola", "tinola recipe"],
+      "responses": [
+        "Sauté ginger, add chicken, simmer, then add papaya and chili leaves."
+      ]
+    },
+    {
+      "tag": "pancit",
+      "patterns": ["how to make pancit canton", "pancit recipe"],
+      "responses": [
+        "Stir-fry meat, vegetables, then noodles with soy sauce and broth."
+      ]
+    },
+    {
+      "tag": "menudo",
+      "patterns": ["how to cook menudo", "menudo recipe"],
+      "responses": [
+        "Cook pork in tomato sauce with liver, potatoes, carrots, and bell pepper."
+      ]
+    },
+    {
+      "tag": "sisig",
+      "patterns": ["how do I make sisig", "sisig recipe"],
+      "responses": [
+        "Boil and grill pork parts, chop, then sauté with onions, chili, and calamansi."
+      ]
+    },
+    {
+      "tag": "laing",
+      "patterns": ["how to cook laing", "laing recipe"],
+      "responses": [
+        "Cook taro leaves slowly in coconut milk until tender and creamy."
+      ]
+    },
+    {
+      "tag": "leche_flan",
+      "patterns": ["how do I make leche flan", "leche flan recipe"],
+      "responses": [
+        "Make caramel, add custard mixture, steam or bake in water bath until set."
+      ]
+    },
+    {
+      "tag": "halo_halo",
+      "patterns": ["how to cook halo halo", "halo halo recipe"],
+      "responses": [
+        "Layer sweet ingredients, add shaved ice, milk, and toppings. Mix before eating."
+      ]
+    },
+    {
+      "tag": "bibingka",
+      "patterns": ["how do I make bibingka", "bibingka recipe"],
+      "responses": [
+        "Bake rice flour batter with coconut milk and toppings like salted egg and cheese."
+      ]
+    },
+    {
+      "tag": "ube",
+      "patterns": ["how to make ube halaya", "ube halaya recipe"],
+      "responses": [
+        "Cook grated ube with milk and butter, stir until thick and jam-like."
+      ]
+    },
+    {
+      "tag": "turon",
+      "patterns": ["how do I make turon", "turon recipe"],
+      "responses": [
+        "Wrap banana and sugar in spring roll wrapper, then fry until caramelized."
+      ]
+    },
+    {
+      "tag": "mango_float",
+      "patterns": ["how to cook mango float", "mango float recipe"],
+      "responses": [
+        "Layer graham crackers, cream mixture, and mangoes; chill until set."
+      ]
+    },
+    {
+      "tag": "polvoron",
+      "patterns": ["how do I make polvoron", "polvoron recipe"],
+      "responses": [
+        "Mix toasted flour, milk, sugar, and butter; mold and wrap."
+      ]
+    },
+    {
+      "tag": "buko_pandan",
+      "patterns": ["how to cook buko pandan", "buko pandan recipe"],
+      "responses": [
+        "Mix coconut strips, jelly, cream, and condensed milk; chill before serving."
+      ]
+    },
+    {
+      "tag": "beginner_food",
+      "patterns": ["easy recipe", "beginner cooking", "simple meal"],
+      "responses": [
+        "Try simple stir-fry chicken or fried rice—easy beginner meals."
+      ]
+    }
+  ]
+}
