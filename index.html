@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TasteBot: Beginner’s Smart Cooking Guide Recommendation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="brand">
+          <div class="brand-avatar">TB</div>
+          <div class="brand-text">
+            <h1 class="brand-title">TasteBot</h1>
+            <p class="brand-subtitle">Beginner’s Smart Cooking Guide Recommendation</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button type="button" id="new-chat-btn" class="new-chat-btn">New chat</button>
+          <div class="status-pill">
+            <span class="status-indicator"></span>
+            <span class="status-text">Online</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <aside class="side-panel">
+          <h2 class="panel-title">Recent chats</h2>
+          <div id="recent-chats-list"></div>
+        </aside>
+
+        <section class="chat-panel">
+          <div class="chat-window" id="chat-window">
+            <div class="message-row bot">
+              <div class="avatar bot-avatar">T</div>
+              <div class="bubble">
+                <p>
+                  Hi, I’m <strong>TasteBot</strong> – your beginner-friendly cooking guide.
+                  Tell me what ingredients you have or what you’d like to learn and
+                  I’ll walk you through a simple recipe step by step.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <form class="input-bar" id="chat-form">
+            <input
+              id="chat-input"
+              type="text"
+              autocomplete="off"
+              placeholder="Ask TasteBot for a simple recipe or cooking guide..."
+            />
+            <button type="submit" class="send-button">Send</button>
+          </form>
+        </section>
+      </main>
+
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
