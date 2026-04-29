@@ -2,162 +2,427 @@
   "intents": [
     {
       "tag": "greeting",
-      "patterns": ["hi", "hello", "hey", "hey tastebot"],
+      "patterns": [
+        "hi",
+        "hello",
+        "hey",
+        "hey tastebot",
+        "kamusta",
+        "kumusta",
+        "maayong buntag",
+        "maayong hapon",
+        "unsa man",
+        "unsay balita",
+        "how are you",
+        "tirada dol",
+        "kinsa ka?"
+      ],
       "responses": [
-        "Hello! I'm TasteBot. What do you want to cook?",
-        "Hi! Tell me a dish or ingredients you have."
-      ]
-    },
-    {
-      "tag": "thanks",
-      "patterns": ["thank you", "thanks"],
-      "responses": [
-        "You're welcome! Ask me anytime for recipes.",
-        "Happy to help! Try another dish anytime."
-      ]
-    },
-    {
-      "tag": "about_bot",
-      "patterns": ["who are you", "what are you", "what is tastebot"],
-      "responses": [
-        "I'm TasteBot, your beginner-friendly cooking assistant.",
-        "I help you learn recipes step by step."
-      ]
-    },
-    {
-      "tag": "capability",
-      "patterns": ["what can you do", "help", "features"],
-      "responses": [
-        "I can suggest recipes, guide cooking steps, and explain ingredients simply.",
-        "Ask me how to cook dishes or what you can make from ingredients."
+        "Hey! 👋 I’m TasteBot, your cooking buddy. I can help you figure out what to cook and guide you step by step so nothing feels confusing, even if you're just starting out.\n\nYou can tell me a dish you want or just list your ingredients. I’ll break everything down into simple steps you can follow easily. So, what are we cooking today?"
       ]
     },
 
     {
       "tag": "adobo",
-      "patterns": ["how to cook adobo", "adobo recipe", "make adobo", "how do I cook adobo"],
+      "patterns": [
+        "how to cook adobo",
+        "adobo recipe",
+        "make adobo",
+        "magluto adobo",
+        "paano magluto ng adobo",
+        "unsaon pagluto ug adobo",
+        "adobo"
+      ],
       "responses": [
-        "Ingredients: chicken/pork, soy sauce, vinegar, garlic, bay leaves, peppercorns. Steps: simmer until tender then reduce sauce."
+        "Adobo is one of the easiest Filipino dishes you can start with, and it works even if you’re not an experienced cook. You’ll need chicken or pork, soy sauce, vinegar, garlic, bay leaves, and peppercorns. The flavor comes from balancing salty, sour, and savory tastes.\n\nStep by step: (1) Marinate your meat in soy sauce and garlic for 20–30 minutes so it absorbs flavor. (2) Put everything in a pot, add vinegar, bay leaves, and peppercorns, then bring it to a boil without stirring too early. (3) Lower the heat and simmer for 30–40 minutes until the meat becomes tender. (4) Let the sauce reduce until it becomes rich and slightly thick.\n\nIf you want it better, you can fry the meat first or add a little sugar for balance. Do you want a spicy version or the classic one?"
       ]
     },
+
     {
       "tag": "sinigang",
-      "patterns": ["how to make sinigang", "sinigang na baboy", "sinigang recipe"],
+      "patterns": [
+        "how to make sinigang",
+        "sinigang recipe",
+        "sinigang na baboy",
+        "magluto sinigang",
+        "unsaon pagluto sinigang"
+      ],
       "responses": [
-        "Boil pork, add vegetables, then sour mix or tamarind. Simmer until tender."
+        "Sinigang is a warm sour soup that feels comforting, especially on rainy days. It’s made with pork, shrimp, or fish, and vegetables like radish, eggplant, and kangkong. The sour taste usually comes from tamarind or sinigang mix.\n\nHere’s how to cook it: (1) Boil your meat with onions and tomatoes until it becomes tender. (2) Add your souring agent and adjust the taste depending on how sour you like it. (3) Add vegetables, starting with the hard ones like radish and eggplant. (4) Simmer for a few more minutes until everything is cooked.\n\nYou can add fish sauce for more flavor. Do you like it very sour or just mild?"
       ]
     },
-    {
-      "tag": "kare_kare",
-      "patterns": ["how do I make kare kare", "kare kare recipe"],
-      "responses": [
-        "Cook oxtail until tender, make peanut sauce, add vegetables, serve with bagoong."
-      ]
-    },
+
     {
       "tag": "lumpia",
-      "patterns": ["how to make lumpiang shanghai", "lumpia recipe"],
+      "patterns": [
+        "lumpia recipe",
+        "how to make lumpia",
+        "lumpiang shanghai",
+        "magluto lumpia",
+        "unsaon pagluto lumpia"
+      ],
       "responses": [
-        "Mix pork filling, wrap in spring roll wrapper, then fry until golden."
+        "Lumpia is crispy, tasty, and fun to make once you get used to wrapping it. It usually has ground pork, carrots, onion, garlic, and a thin wrapper.\n\nStep by step: (1) Mix all filling ingredients until well combined. (2) Put a small amount on the wrapper and roll it tightly, sealing the edge with water. (3) Heat oil and fry until golden brown and crispy. (4) Drain excess oil before serving.\n\nDon’t overcrowd the pan so they cook evenly. Do you want tips on how to wrap it faster without breaking?"
       ]
     },
+
     {
       "tag": "tinola",
-      "patterns": ["how to cook tinola", "tinola recipe"],
+      "patterns": [
+        "tinola recipe",
+        "how to cook tinola",
+        "magluto tinola",
+        "unsaon pagluto tinola"
+      ],
       "responses": [
-        "Sauté ginger, add chicken, simmer, then add papaya and chili leaves."
+        "Tinola is a simple chicken soup that’s light but very comforting. It uses ginger, garlic, onion, chicken, and vegetables like papaya or chayote.\n\nHere’s how to cook it: (1) Sauté garlic, onion, and ginger until fragrant. (2) Add chicken and cook until it changes color. (3) Pour water and simmer until the chicken becomes tender. (4) Add papaya or chayote and cook until soft. (5) Add chili leaves last.\n\nSeason with fish sauce for better flavor. Do you prefer strong ginger taste or mild soup?"
       ]
     },
+
     {
       "tag": "pancit",
-      "patterns": ["how to make pancit canton", "pancit recipe"],
+      "patterns": [
+        "pancit recipe",
+        "how to cook pancit canton",
+        "magluto pancit",
+        "unsaon pagluto pancit"
+      ],
       "responses": [
-        "Stir-fry meat, vegetables, then noodles with soy sauce and broth."
+        "Pancit Canton is a quick noodle dish you can easily customize depending on what you have at home. It usually includes noodles, meat, vegetables, and soy sauce.\n\nStep by step: (1) Sauté garlic and meat until cooked. (2) Add vegetables and cook lightly so they stay crunchy. (3) Pour broth or water with soy sauce. (4) Add noodles and mix until they absorb flavor. (5) Stir everything together evenly.\n\nDon’t overcook the noodles so they stay firm. Do you want me to adjust this based on your ingredients?"
       ]
     },
-    {
-      "tag": "menudo",
-      "patterns": ["how to cook menudo", "menudo recipe"],
-      "responses": [
-        "Cook pork in tomato sauce with liver, potatoes, carrots, and bell pepper."
-      ]
-    },
-    {
-      "tag": "sisig",
-      "patterns": ["how do I make sisig", "sisig recipe"],
-      "responses": [
-        "Boil and grill pork parts, chop, then sauté with onions, chili, and calamansi."
-      ]
-    },
-    {
-      "tag": "laing",
-      "patterns": ["how to cook laing", "laing recipe"],
-      "responses": [
-        "Cook taro leaves slowly in coconut milk until tender and creamy."
-      ]
-    },
-    {
-      "tag": "leche_flan",
-      "patterns": ["how do I make leche flan", "leche flan recipe"],
-      "responses": [
-        "Make caramel, add custard mixture, steam or bake in water bath until set."
-      ]
-    },
-    {
-      "tag": "halo_halo",
-      "patterns": ["how to cook halo halo", "halo halo recipe"],
-      "responses": [
-        "Layer sweet ingredients, add shaved ice, milk, and toppings. Mix before eating."
-      ]
-    },
-    {
-      "tag": "bibingka",
-      "patterns": ["how do I make bibingka", "bibingka recipe"],
-      "responses": [
-        "Bake rice flour batter with coconut milk and toppings like salted egg and cheese."
-      ]
-    },
-    {
-      "tag": "ube",
-      "patterns": ["how to make ube halaya", "ube halaya recipe"],
-      "responses": [
-        "Cook grated ube with milk and butter, stir until thick and jam-like."
-      ]
-    },
+
     {
       "tag": "turon",
-      "patterns": ["how do I make turon", "turon recipe"],
+      "patterns": [
+        "turon recipe",
+        "how to make turon",
+        "magluto turon",
+        "unsaon pagluto turon"
+      ],
       "responses": [
-        "Wrap banana and sugar in spring roll wrapper, then fry until caramelized."
+        "Turon is a sweet crispy snack made with banana and sugar wrapped in spring roll wrappers. It’s simple but very satisfying when fried properly.\n\nHere’s how: (1) Slice banana and coat it with sugar. (2) Wrap it tightly in the wrapper. (3) Fry in medium heat until golden brown. (4) Let the sugar caramelize while frying.\n\nYou can add jackfruit for extra flavor. Do you want it extra crispy or just lightly fried?"
       ]
     },
-    {
-      "tag": "mango_float",
-      "patterns": ["how to cook mango float", "mango float recipe"],
-      "responses": [
-        "Layer graham crackers, cream mixture, and mangoes; chill until set."
-      ]
-    },
-    {
-      "tag": "polvoron",
-      "patterns": ["how do I make polvoron", "polvoron recipe"],
-      "responses": [
-        "Mix toasted flour, milk, sugar, and butter; mold and wrap."
-      ]
-    },
-    {
-      "tag": "buko_pandan",
-      "patterns": ["how to cook buko pandan", "buko pandan recipe"],
-      "responses": [
-        "Mix coconut strips, jelly, cream, and condensed milk; chill before serving."
-      ]
-    },
+
     {
       "tag": "beginner_food",
-      "patterns": ["easy recipe", "beginner cooking", "simple meal"],
+      "patterns": [
+        "easy recipe",
+        "simple meal",
+        "beginner cooking",
+        "unsa akong lutuon",
+        "what should I cook",
+        "pinakadali lutoun"
+      ],
       "responses": [
-        "Try simple stir-fry chicken or fried rice—easy beginner meals."
+        "If you're just starting, fried rice is one of the best dishes to learn basic cooking skills. It teaches you how to sauté, season, and mix ingredients properly.\n\nStep by step: (1) Heat oil and sauté garlic until fragrant. (2) Add egg or meat and cook it. (3) Add rice and break clumps. (4) Season with soy sauce or salt. (5) Mix and taste.\n\nKeep it simple first—don’t rush. Do you want me to suggest something based on what you have in your kitchen?"
+      ]
+    },
+
+    {
+      "tag": "fried_rice",
+      "patterns": [
+  "fried rice",
+  "sinangag",
+  "how to make fried rice",
+  "magluto sinangag",
+  "unsaon pag sinangag",
+  "paano magluto ng fried rice",
+  "garlic rice recipe",
+  "luto sinangag",
+  "bisaya fried rice",
+  "what is sinangag"
+],
+      "responses": [
+        "Fried rice or sinangag is one of the most common Filipino breakfasts 🍳. It’s simple, fast, and perfect for leftover rice.\n\nTo cook it, (1) heat oil in a pan and sauté garlic until golden and fragrant. (2) Add egg or meat like hotdog or leftover chicken. (3) Add cold rice and break it apart while mixing. (4) Season with soy sauce or salt and stir well until evenly coated.\n\nIt’s best when rice is a bit dry so it doesn’t get soggy. Do you want garlic fried rice or egg fried rice version?"
+      ]
+    },
+
+    {
+      "tag": "tocino",
+      "patterns": [
+  "tocino",
+  "how to cook tocino",
+  "tocino recipe",
+  "magluto tocino",
+  "unsaon pagluto tocino",
+  "paano magluto tocino",
+  "sweet pork tocino",
+  "breakfast pork",
+  "tocino bisaya",
+  "luto tocino"
+],
+      "responses": [
+        "Tocino is a sweet Filipino cured pork often eaten for breakfast with rice and egg 🍚.\n\nTo cook it, (1) pan-fry the tocino without oil first so it releases its natural glaze. (2) Add a little water so it cooks evenly. (3) Let it simmer until the sauce thickens and caramelizes. (4) Fry until slightly crispy edges form.\n\nServe it with rice and egg for a classic Pinoy breakfast. Do you want homemade tocino or store-bought style cooking guide?"
+      ]
+    },
+
+    {
+      "tag": "longganisa",
+      "patterns": [
+  "longganisa",
+  "how to cook longganisa",
+  "longganisa recipe",
+  "magluto longganisa",
+  "unsaon pagluto longganisa",
+  "paano magluto longganisa",
+  "filipino sausage",
+  "sweet longganisa",
+  "garlic longganisa",
+  "luto longganisa"
+],
+      "responses": [
+        "Longganisa is a Filipino sausage that can be sweet, garlicky, or spicy depending on the region 🌭.\n\nTo cook it, (1) place longganisa in a pan with a little water. (2) Let it boil until water evaporates. (3) Once oil comes out, fry it in its own fat until golden brown. (4) Serve with garlic rice and egg.\n\nDo you want Vigan (garlicky) or Lucban (sour-ish) style?"
+      ]
+    },
+
+    {
+      "tag": "daing_na_bangus",
+      "patterns": [
+  "daing na bangus",
+  "fried milkfish",
+  "how to cook daing bangus",
+  "magluto bangus",
+  "unsaon pag daing bangus",
+  "paano magluto bangus",
+  "marinated bangus",
+  "crispy bangus",
+  "bangus recipe",
+  "luto bangus"
+],
+      "responses": [
+        "Daing na bangus is a marinated milkfish that’s crispy and tangy when fried 🐟.\n\nTo cook it, (1) marinate bangus in vinegar, garlic, salt, and pepper overnight. (2) Heat oil and fry skin-side first until crispy. (3) Flip and cook the other side until golden. (4) Drain excess oil before serving.\n\nBest eaten with rice and spiced vinegar. Do you like it crispy or soft fried?"
+      ]
+    },
+
+    {
+      "tag": "bulalo",
+      "patterns": [
+  "bulalo",
+  "how to cook bulalo",
+  "bulalo recipe",
+  "magluto bulalo",
+  "unsaon pagluto bulalo",
+  "paano magluto bulalo",
+  "beef bone soup",
+  "batangas bulalo",
+  "bone marrow soup",
+  "luto bulalo"
+],
+      "responses": [
+        "Bulalo is a beef bone marrow soup popular in Batangas 🥣. It’s rich, comforting, and perfect for cold weather.\n\nTo cook it, (1) boil beef shank and bones for 1–2 hours until tender. (2) Skim off impurities. (3) Add corn and potatoes. (4) Add cabbage and pechay last. (5) Season with salt or fish sauce.\n\nThe soup becomes flavorful from the bone marrow. Do you want a budget version or restaurant-style?"
+      ]
+    },
+
+    {
+      "tag": "chicken_inasal",
+      "patterns": [
+  "chicken inasal",
+  "inasal recipe",
+  "how to cook inasal",
+  "magluto inasal",
+  "unsaon pagluto inasal",
+  "paano magluto inasal",
+  "grilled chicken bacolod",
+  "filipino bbq chicken",
+  "inasal bisaya",
+  "luto inasal"
+],
+      "responses": [
+        "Chicken Inasal is a grilled chicken dish from Bacolod with a smoky and tangy flavor 🔥.\n\nTo cook it, (1) marinate chicken in calamansi, vinegar, garlic, ginger, and annatto oil. (2) Grill while basting with marinade and oil. (3) Flip until fully cooked and slightly charred. (4) Serve with rice and dipping sauce.\n\nDo you want charcoal grill version or pan-grilled style?"
+      ]
+    },
+
+    {
+      "tag": "sisig",
+      "patterns": [
+  "sisig",
+  "how to cook sisig",
+  "sisig recipe",
+  "magluto sisig",
+  "unsaon pagluto sisig",
+  "paano magluto sisig",
+  "sizzling pork",
+  "pampanga sisig",
+  "crispy sisig",
+  "luto sisig"
+],
+      "responses": [
+        "Sisig is a sizzling Filipino dish made from chopped pork, onions, and calamansi 🔥.\n\nTo cook it, (1) boil pork until tender. (2) Grill or fry for texture. (3) Chop finely. (4) Sauté with onions, chili, and calamansi juice. (5) Serve sizzling with egg on top.\n\nDo you want crispy sisig or creamy mayo-style sisig?"
+      ]
+    },
+
+    {
+      "tag": "giniling",
+      "patterns": [
+  "giniling",
+  "how to cook giniling",
+  "ground pork recipe",
+  "magluto giniling",
+  "unsaon pagluto giniling",
+  "paano magluto giniling",
+  "giniling na baboy",
+  "filipino ground pork",
+  "budget ulam",
+  "luto giniling"
+],
+      "responses": [
+        "Giniling is a simple Filipino ground pork dish often cooked at home 🍲.\n\nTo make it, (1) sauté garlic and onion. (2) Add ground pork and cook until browned. (3) Add carrots, potatoes, and peas. (4) Pour tomato sauce and simmer until tender.\n\nIt’s perfect with rice and very budget-friendly. Do you want spicy giniling or classic version?"
+      ]
+    },
+
+    {
+      "tag": "arroz_caldo",
+      "patterns": [
+  "arroz caldo",
+  "lugaw chicken",
+  "how to cook arroz caldo",
+  "magluto arroz caldo",
+  "unsaon pagluto arroz caldo",
+  "paano magluto arroz caldo",
+  "filipino congee",
+  "ginger rice porridge",
+  "chicken lugaw",
+  "luto arroz caldo"
+],
+      "responses": [
+        "Arroz caldo is a Filipino rice porridge with chicken and ginger 🍲.\n\nTo cook it, (1) sauté garlic, onion, and ginger. (2) Add chicken and cook slightly. (3) Add rice and broth. (4) Stir until rice becomes soft and porridge-like. (5) Top with egg and fried garlic.\n\nIt’s best eaten warm. Do you want it thick or soupy?"
+      ]
+    },
+
+    {
+      "tag": "lugaw",
+      "patterns": [
+  "lugaw",
+  "how to cook lugaw",
+  "rice porridge",
+  "magluto lugaw",
+  "unsaon pagluto lugaw",
+  "paano magluto lugaw",
+  "plain porridge",
+  "filipino lugaw",
+  "sick food",
+  "luto lugaw"
+],
+      "responses": [
+        "Lugaw is a simple Filipino rice porridge often eaten when you’re sick or want something light 🍚.\n\nTo cook it, (1) wash rice and boil with water. (2) Stir often so it doesn’t stick. (3) Add salt or ginger for flavor. (4) Top with egg or chicken.\n\nIt’s very easy and comforting. Do you want plain lugaw or with chicken?"
+      ]
+    },
+
+    {
+      "tag": "banana_que",
+      "patterns": [
+  "banana cue",
+  "banana que",
+  "how to make banana cue",
+  "magluto banana cue",
+  "unsaon paghimo banana cue",
+  "paano magluto banana cue",
+  "street banana",
+  "caramel banana",
+  "filipino street food banana",
+  "luto banana cue"
+],
+      "responses": [
+        "Banana cue is a popular street snack made with fried saba bananas 🍌.\n\nTo cook it, (1) fry saba bananas in hot oil. (2) Add brown sugar while frying so it caramelizes. (3) Cook until golden and sticky. (4) Skewer and serve hot.\n\nDo you want extra caramelized or lightly sweet?"
+      ]
+    },
+
+    {
+      "tag": "kwek_kwek",
+      "patterns": [
+  "kwek kwek",
+  "how to cook kwek kwek",
+  "street food egg",
+  "magluto kwek kwek",
+  "unsaon pagluto kwek kwek",
+  "paano magluto kwek kwek",
+  "orange egg street food",
+  "quail egg fry",
+  "pinoy street snack",
+  "luto kwek kwek"
+],
+      "responses": [
+        "Kwek-kwek is a popular Filipino street food made from quail eggs covered in orange batter 🟠.\n\nTo cook it, (1) boil quail eggs and peel them. (2) Dip in orange batter made of flour and food coloring. (3) Deep fry until crispy. (4) Serve with vinegar or sweet sauce.\n\nDo you want street-style sauce recipe too?"
+      ]
+    },
+
+    {
+      "tag": "fish_ball",
+      "patterns": [
+  "fishball",
+  "fish ball",
+  "how to cook fishball",
+  "fishball sauce",
+  "magluto fishball",
+  "unsaon pagluto fishball",
+  "paano magluto fishball",
+  "manong fishball",
+  "street fishball",
+  "luto fishball"
+],
+      "responses": [
+        "Fishballs are a famous Filipino street food usually served on skewers 🍢.\n\nTo cook it, (1) deep fry fishballs until golden. (2) Prepare sauce using soy sauce, sugar, garlic, and cornstarch. (3) Simmer until thick. (4) Serve hot with skewers.\n\nDo you want Manong fishball sauce style?"
+      ]
+    },
+
+    {
+      "tag": "siomai",
+      "patterns": [
+  "siomai",
+  "how to cook siomai",
+  "siomai recipe",
+  "magluto siomai",
+  "unsaon pagluto siomai",
+  "paano magluto siomai",
+  "steamed dumpling",
+  "pork siomai",
+  "street siomai",
+  "luto siomai"
+],
+      "responses": [
+        "Siomai is a steamed dumpling filled with pork, shrimp, or beef 🥟.\n\nTo cook it, (1) prepare ground meat mixture with seasonings. (2) wrap in siomai wrappers. (3) steam for 10–15 minutes. (4) serve with soy sauce, calamansi, and chili oil.\n\nDo you want street-style siomai sauce?"
+      ]
+    },
+
+    {
+      "tag": "buko_pie",
+      "patterns": [
+  "buko pie",
+  "how to make buko pie",
+  "buko pie recipe",
+  "magluto buko pie",
+  "unsaon paghimo buko pie",
+  "paano magluto buko pie",
+  "coconut pie",
+  "laguna buko pie",
+  "filipino pie dessert",
+  "luto buko pie"
+],
+      "responses": [
+        "Buko pie is a famous Filipino coconut pie from Laguna 🥧.\n\nTo make it, (1) prepare pie crust. (2) cook young coconut with milk and sugar. (3) fill crust and cover with top layer. (4) bake until golden brown.\n\nDo you want easy no-bake version?"
+      ]
+    },
+
+    {
+      "tag": "puto_bumbong",
+      "patterns": [
+  "puto bumbong",
+  "how to make puto bumbong",
+  "christmas rice cake",
+  "magluto puto bumbong",
+  "unsaon paghimo puto bumbong",
+  "paano magluto puto bumbong",
+  "purple rice cake",
+  "filipino christmas food",
+  "street puto bumbong",
+  "luto puto bumbong"
+],
+      "responses": [
+        "Puto bumbong is a purple rice cake usually eaten during Christmas 🎄.\n\nTo make it, (1) steam purple glutinous rice in bamboo tubes. (2) Serve with butter, sugar, and coconut. (3) Eat while hot."
       ]
     }
+
   ]
 }
